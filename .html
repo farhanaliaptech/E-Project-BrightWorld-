@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrightWorld</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.png" alt="Logo" height="36">
+        <span class="ms-2 fw-light text-uppercase">BrightWorld</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto text-center">
+          <li class="nav-item"><a class="nav-link" href="HOME.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="queries.html">Queries</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="advertisement.html">Advertisement</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Video -->
+  <header class="video-banner">
+    <video autoplay muted loop playsinline>
+      <source src="images/front page.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+    <div class="banner-content">
+      <h1>Welcome to Bright World</h1>
+      <a href="products.html" class="btn" id="Aliyanbtn1">Explore Products</a>
+    </div>
+  </header>
+
+  <!-- Product Cards -->
+  <section class="container my-5">
+    <div class="card-row">
+      <a href="bulbs.html" class="product-card text-decoration-none text-dark">
+        <div class="card">
+          <img src="images/bulb.png" class="card-img-top" alt="Bulbs">
+          <div class="card-body text-center">
+            <h5 class="card-title">Bulbs</h5>
+          </div>
+        </div>
+      </a>
+      <a href="decoration lights.html" class="product-card text-decoration-none text-dark">
+        <div class="card">
+          <img src="images/decoratin light.png" class="card-img-top" alt="Decoration Lights">
+          <div class="card-body text-center">
+            <h5 class="card-title">Decoration Lights</h5>
+          </div>
+        </div>
+      </a>
+      <a href="spot lights.html" class="product-card text-decoration-none text-dark">
+        <div class="card">
+          <img src="images/spo light.png" class="card-img-top" alt="Spot Lights">
+          <div class="card-body text-center">
+            <h5 class="card-title">Spot Lights</h5>
+          </div>
+        </div>
+      </a>
+      <a href="smart bulbs.html" class="product-card text-decoration-none text-dark">
+        <div class="card">
+          <img src="images/smart bulb.png" class="card-img-top" alt="Smart Bulbs">
+          <div class="card-body text-center">
+            <h5 class="card-title">Smart Bulbs</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="fw-bold mb-3">BrightWorld – Lighting the Future</h1>
+        <p class="lead">Discover the brilliance of BrightWorld, your trusted source for all types of LED bulbs. From innovative designs to energy-efficient lighting solutions, we specialize in providing high-quality products that brighten homes, businesses, and beyond.</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="images/hero.png" class="img-fluid" alt="Hero Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-3">
+          <h5 class="text-uppercase mb-3">BrightWorld</h5>
+          <p>Energy-efficient LED lighting solutions for every space. Illuminate your world with BrightWorld!</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-uppercase mb-3">Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="HOME.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="queries.html">Queries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="advertisement.html">Advertisement</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-uppercase mb-3">Contact</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Albert Street, NY</p>
+          <p><i class="fas fa-envelope"></i> BrightWorld.support@gmail.com</p>
+          <p><i class="fas fa-phone"></i> +9786 6776 236</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="text-uppercase mb-3">Follow Us</h5>
+          <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BrightWorld - Products</title>
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+
+ <!-- Bootstrap -->
+ <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="css/main.css" />
+ 
+ <!-- Scripts -->
+ <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  /* Global Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8fafc;
+    color: #333;
+    line-height: 1.6;
+  }
+  a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 20px 15px;
+  }
+ 
+  h1 {
+    color: #004080;
+    margin: 25px 0 10px;
+  }
+  
+  .category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between buttons */
+  justify-content: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 1.5rem; /* Space below the whole nav */
+}
+
+.category-btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 999px; /* Circular buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #333;
+  margin: 5px 5px 0 0; /* Optional extra spacing */
+}
+
+.category-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.category-btn.active,
+.category-btn[aria-pressed="true"] {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+
+  /* Products Grid */
+  .products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px; /* optional */
+}
+
+.product-card {
+  width: 100%; /* Fills entire grid column */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+  .product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #f7f9fb;
+  }
+  .product-content {
+    padding: 15px 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .product-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #004080;
+  }
+  .product-specs {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .product-price {
+    font-weight: 700;
+    color: #1e90ff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .product-brand {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+  }
+
+  /* Download description link */
+  .download-link {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #1e90ff;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  .download-link:hover {
+    text-decoration: underline;
+  }
+
+ 
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .product-content {
+      padding: 12px 14px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+ <!-- navbar -->
+ <nav class = "navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class = "container">
+      <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "HOME.html">
+          <img src = "images/logo.png" alt = "site icon">
+          <span class = "text-uppercase fw-lighter ms-2">BrightWorld</span>
+      </a>
+
+
+
+      <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+          <span class = "navbar-toggler-icon"></span>
+      </button>
+
+      <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
+          <ul class = "navbar-nav mx-auto text-center">
+              <li class = "nav-item px-2 py-2">
+                  <a class = "nav-link text-uppercase text-dark" href = "index.html">home</a>
+              </li>
+              <li class = "nav-item px-2 py-2">
+                <a class = "nav-link text-uppercase text-dark" href = "products.html">product</a>
+            </li>
+              
+              
+              <li class = "nav-item px-2 py-2">
+                  <a class = "nav-link text-uppercase text-dark" href = "gallery.html">gallery</a>
+              </li>
+              <li class = "nav-item px-2 py-2">
+                  <a class = "nav-link text-uppercase text-dark" href = "queries.html">queries</a>
+              </li>
+              <li class = "nav-item px-2 py-2">
+                  <a class = "nav-link text-uppercase text-dark" href = "contact.html">contact</a>
+              </li>
+              <li class = "nav-item px-2 py-2 border-0">
+                  <a class = "nav-link text-uppercase text-dark" href = "advertisement.html">advertisement</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<main class="container">
+
+
+  <h1>Our LED Light Products</h1>
+
+  <nav class="category-nav" aria-label="Product Categories">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="bulbs">Bulbs</button>
+    <button class="category-btn" data-category="spotlights">Spot Lights</button>
+    <button class="category-btn" data-category="decoration">Decoration Lights</button>
+    <button class="category-btn" data-category="smartlights">Smart Lights</button>
+  </nav>
+
+  <section class="products-grid container" aria-live="polite" aria-label="Light products list">
+
+    <!-- Product cards to be dynamically filtered -->
+    <!-- Bulbs -->
+    
+  <div class="product-card container" data-category="bulbs">
+      <img src="./images/cree/bulb (2).jfif" alt="LED Bulb Classic" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">LED Bulb Classic</h2>
+        <p class="product-specs">9 Watts / 800 Lumens / Warm White / 25,000h lifespan</p>
+        <p class="product-price">RS 299</p>
+        <p class="product-brand">Brand: CREE</p>
+        <button class="download-link" onclick="downloadDescription('LED Bulb Classic')">Download Description</button>
+      </div>
+  </div
+  >
+    
+
+    <article class="product-card container" data-category="bulbs">
+      <img src="./images/cree/bulb (1).jpg" alt="LED Bulb Designer" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">LED Bulb Designer</h2>
+        <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+        <p class="product-price">RS 399</p>
+        <p class="product-brand">Brand: CREE</p>
+        <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+      </div>
+    </article>
+
+    <article class="product-card container" data-category="bulbs">
+        <img src="./images/cree/bulb (1).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: CREE</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+      
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/philip/bulb (4).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/philip/bulb (3).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/philip/bulb (2).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/philip/bulb (1).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/sylvania/bulb (4).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/sylvania/bulb (3).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/sylvania/bulb (2).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+      <article class="product-card container" data-category="bulbs">
+        <img src="./images/sylvania/bulb (1).jfif" alt="LED Bulb Designer" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">LED Bulb Designer</h2>
+          <p class="product-specs">12 Watts / 1100 Lumens / Daylight White / 30,000h lifespan</p>
+          <p class="product-price">RS 399</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('LED Bulb Designer')">Download Description</button>
+        </div>
+      </article>
+
+
+    <!-- Spot Lights -->
+    <article class="product-card container" data-category="spotlights">
+      <img src="./images/cree/spot (4).jfif" alt="Recessed Spot Light" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">Recessed Spot Light</h2>
+        <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+        <p class="product-price">RS 499</p>
+        <p class="product-brand">Brand: Cree</p>
+        <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+      </div>
+    </article>
+    <article class="product-card container" data-category="spotlights">
+      <img src="./images/cree/spot (3).jfif" alt="Adjustable Spot Light" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">Adjustable Spot Light</h2>
+        <p class="product-specs">10 Watts / 900 Lumens / Warm White / 25,000h lifespan</p>
+        <p class="product-price">RS 599</p>
+        <p class="product-brand">Brand: Cree</p>
+        <button class="download-link" onclick="downloadDescription('Adjustable Spot Light')">Download Description</button>
+      </div>
+    </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/cree/spot (2).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/cree/spot (1).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/philip/spot (4).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Philip</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/philip/spot (3).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Philip</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/philip/spot (2).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Philip</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/philip/spot (1).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: Philip</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/sylvania/spot (4).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/sylvania/spot (3).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/sylvania/spot (2).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="spotlights">
+        <img src="./images/sylvania/spot (1).jfif" alt="Recessed Spot Light" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Recessed Spot Light</h2>
+          <p class="product-specs">7 Watts / 600 Lumens / Cool White / 20,000h lifespan</p>
+          <p class="product-price">RS 499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Recessed Spot Light')">Download Description</button>
+        </div>
+      </article>
+
+                    
+
+    <!-- Decoration Lights -->
+    <article class="product-card container" data-category="decoration">
+      <img src="./images/cree/decorating (1).jfif" alt="String Fairy Lights" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">String Fairy Lights</h2>
+        <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+        <p class="product-price">RS 999</p>
+        <p class="product-brand">Brand: CREE</p>
+        <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+      </div>
+    </article>
+
+    <article class="product-card container" data-category="decoration">
+      <img src="./images/cree/decorating (2).jfif" alt="LED Lanterns" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">LED Lanterns</h2>
+        <p class="product-specs">Battery Operated / Warm Glow / Duration 8 hours</p>
+        <p class="product-price">RS 1299</p>
+        <p class="product-brand">Brand: CREE</p>
+        <button class="download-link" onclick="downloadDescription('LED Lanterns')">Download Description</button>
+      </div>
+    </article>
+    <article class="product-card container" data-category="decoration">
+        <img src="./images/cree/decorating (3).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: CREE</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/philip/decorating (1).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/philip/decorating (2).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/philip/decorating (3).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article>
+       <article class="product-card container" data-category="decoration">
+        <img src="./images/philip/decorating (4).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/sylvania/decorating (1).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article>
+       <article class="product-card container" data-category="decoration">
+        <img src="./images/sylvania/decorating (2).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/sylvania/decorating (3).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+      <article class="product-card container" data-category="decoration">
+        <img src="./images/sylvania/decorating (4).jfif" alt="String Fairy Lights" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">String Fairy Lights</h2>
+          <p class="product-specs">LED 200 bulbs / Multicolor / Suitable for indoors & outdoors</p>
+          <p class="product-price">RS 999</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('String Fairy Lights')">Download Description</button>
+        </div>
+      </article> 
+    <!-- Smart Lights -->
+    <article class="product-card container" data-category="smartlights">
+        <img src="./images/sylvania/smart (4).jfif" alt="Smart LED Bulb" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart LED Bulb</h2>
+          <p class="product-specs">WiFi Enabled / Color Changing / Voice Control Compatible</p>
+          <p class="product-price">RS 1499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Smart LED Bulb')">Download Description</button>
+        </div>
+      </article>
+    <article class="product-card container" data-category="smartlights">
+      <img src="./images/sylvania/smart (3).jfif" alt="Smart LED Bulb" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">Smart LED Bulb</h2>
+        <p class="product-specs">WiFi Enabled / Color Changing / Voice Control Compatible</p>
+        <p class="product-price">RS 1499</p>
+        <p class="product-brand">Brand: SYLVANIA</p>
+        <button class="download-link" onclick="downloadDescription('Smart LED Bulb')">Download Description</button>
+      </div>
+    </article>
+    <article class="product-card container" data-category="smartlights">
+      <img src="./images/sylvania/smart (2).jfif" alt="Smart Light Strip" class="product-image" />
+      <div class="product-content">
+        <h2 class="product-title">Smart Light Strip</h2>
+        <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+        <p class="product-price">RS 2499</p>
+        <p class="product-brand">Brand: SYLVANIA</p>
+        <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+      </div>
+    </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/sylvania/smart (1).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: SYLVANIA</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/philip/smart (4).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/philip/smart (3).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/philip/smart (2).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/philip/smart (1).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Philips</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/cree/smart (4).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/cree/smart (3).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/cree/smart (2).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+      <article class="product-card container" data-category="smartlights">
+        <img src="./images/cree/smart (1).jfif" alt="Smart Light Strip" class="product-image" />
+        <div class="product-content">
+          <h2 class="product-title">Smart Light Strip</h2>
+          <p class="product-specs">WiFi & App Control / RGB Colors / 5 meters length</p>
+          <p class="product-price">RS 2499</p>
+          <p class="product-brand">Brand: Cree</p>
+          <button class="download-link" onclick="downloadDescription('Smart Light Strip')">Download Description</button>
+        </div>
+      </article>
+
+  </section>
+
+  
+<!-- footer  -->
+
+<footer class="bg-dark py-5">
+     
+  <div class="row text-white g-4 container ">
+
+      <!-- Brand Info -->
+      <div class="col-md-6 col-lg-3">
+          <a class="text-uppercase text-decoration-none brand text-white" href="HOME.html">BrightWorld</a>
+          <p class="text-muted mt-3">Discover the brilliance of BrightWorld, your trusted source for all types of LED bulbs. From innovative designs to energy-efficient lighting solutions, we specialize in providing high-quality products that brighten homes, businesses, and beyond.</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="col-md-6 col-lg-3">
+          <h3 class="fw-light">Links</h3>
+          <ul class="list-unstyled">
+              <li class="my-2"><a href="HOME.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+              <li class="my-2"><a href="products.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Products</a></li>
+              <li class="my-2"><a href="gallery.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Gallery</a></li>
+              <li class="my-2"><a href="queries.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Queries</a></li>
+              <li class="my-2"><a href="contact.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Contact</a></li>
+              <li class="my-2"><a href="advertisement.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Advertisement</a></li>
+
+
+          </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-6 col-lg-3">
+          <h3 class="fw-light mb-3">Contact Us</h3>
+          <p><i class="fas fa-map-marked-alt me-2"></i>Albert Street, New York, AS 756</p>
+          <p><i class="fas fa-envelope me-2"></i><a href="mailto:BrightWorld.support@gmail.com" class="text-white text-decoration-none">BrightWorld.support@gmail.com</a></p>
+          <p><i class="fas fa-phone-alt me-2"></i><a href="tel:+97866776236" class="text-white text-decoration-none">+9786 6776 236</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-6 col-lg-3">
+          <h3 class="fw-light mb-3">Follow Us</h3>
+          <ul class="list-unstyled d-flex">
+              <li><a href="#" class="text-white fs-4 me-4"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#" class="text-white fs-4 me-4"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#" class="text-white fs-4 me-4"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#" class="text-white fs-4 me-4"><i class="fab fa-pinterest"></i></a></li>
+          </ul>
+      </div>
+
+  </div>
+</div>
+</footer>
+
+
+</main>
+<script>
+  // Category filtering logic
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const productCards = document.querySelectorAll('.product-card');
+
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const category = btn.getAttribute('data-category');
+
+      productCards.forEach(card => {
+        if(category === 'all' || card.getAttribute('data-category') === category){
+          card.style.display = 'flex'; 
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Also support dropdown category links in nav
+  const dropdownLinks = document.querySelectorAll('ul.dropdown li a[data-category]');
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cat = link.getAttribute('data-category');
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      const targetBtn = Array.from(categoryButtons).find(b => b.getAttribute('data-category') === cat);
+      if(targetBtn) {
+        targetBtn.classList.add('active');
+      }
+      productCards.forEach(card => {
+        if(cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      window.scrollTo({top: 150, behavior: 'smooth'});
+    });
+  });
+
+  // Download description handling (for demo, this just shows an alert)
+  function downloadDescription(productName){
+    const descriptionText = `Product: ${productName}\n\nThis is a high-quality ${productName} available at BrightWorld LED Lights Store. For detailed specs and pricing, visit the website or contact us.`;
+    
+    // Generate a simple text file to download (as .txt, since PDF or DOC is complex here)
+    const blob = new Blob([descriptionText], {type: 'text/plain'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${productName.replace(/\s/g,'_')}_Description.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>
